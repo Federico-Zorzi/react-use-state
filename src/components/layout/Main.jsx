@@ -14,11 +14,23 @@ export default function Main() {
   let [indexLanguageSelected, setIndexLanguageSelected] = useState(0);
 
   const chooseLanguage = (index) => {
-    const updateLanguage = [];
-    updateLanguage[0] = languages[index].title;
-    updateLanguage[1] = languages[index].description;
+    indexLanguageSelected !== index
+      ? setIndexLanguageSelected(index)
+      : setIndexLanguageSelected(-1);
 
-    setIndexLanguageSelected(index);
+    const cardLanguageSelected = [
+      languages[index].title,
+      languages[index].description,
+    ];
+
+    const emptyCardLanguage = [
+      "Nessun linguaggio selezionato",
+      "Selezionare un linguaggio ricevere informazioni su esso",
+    ];
+
+    const updateLanguage =
+      indexLanguageSelected === -1 ? emptyCardLanguage : cardLanguageSelected;
+
     setActualLanguage(updateLanguage);
   };
 
