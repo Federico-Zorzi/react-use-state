@@ -9,27 +9,18 @@ export default function ButtonList({
   return (
     <section className="buttons-list">
       {list.map((item, index) => {
-        if (index !== actualLanguageIndex) {
-          return (
-            <Button
-              key={item.id}
-              index={index}
-              item={item}
-              chooseLanguage={chooseLanguage}
-              background="btn-primary"
-            ></Button>
-          );
-        } else {
-          return (
-            <Button
-              key={item.id}
-              index={index}
-              item={item}
-              chooseLanguage={chooseLanguage}
-              background="btn-warning"
-            ></Button>
-          );
-        }
+        const background =
+          index !== actualLanguageIndex ? "btn-primary" : "btn-warning";
+
+        return (
+          <Button
+            key={item.id}
+            index={index}
+            item={item}
+            chooseLanguage={chooseLanguage}
+            background={background}
+          ></Button>
+        );
       })}
     </section>
   );
