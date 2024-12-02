@@ -3,7 +3,8 @@ esercizio di oggi: Primi passi con useState
 repo: react-use-state
 
 Esercizio
-Oggi proviamo a usare lo stato di React!Dato un array di oggetti contenente i linguaggi del web e le loro descrizioni:
+Oggi proviamo a usare lo stato di React!
+Dato un array di oggetti contenente i linguaggi del web e le loro descrizioni:
 
     Crea una lista di bottoni, uno per linguaggio.
     Inserisci sotto una card che mostri il titolo e la descrizione del primo linguaggio nell’array.
