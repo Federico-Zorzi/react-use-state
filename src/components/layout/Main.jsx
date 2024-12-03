@@ -6,12 +6,14 @@ import ButtonList from "../button languages/ButtonList";
 import { languages } from "../../assets/data/languages";
 
 export default function Main() {
-  let [actualLanguage, setActualLanguage] = useState([
-    languages[0].title,
-    languages[0].description,
-  ]);
+  let [actualLanguage, setActualLanguage] = useState();
 
-  let [indexLanguageSelected, setIndexLanguageSelected] = useState(0);
+  let [indexLanguageSelected, setIndexLanguageSelected] = useState();
+
+  const emptyCardLanguage = [
+    "Nessun linguaggio selezionato",
+    "Selezionare un linguaggio ricevere informazioni su esso",
+  ];
 
   const chooseLanguage = (index) => {
     indexLanguageSelected !== index
@@ -21,11 +23,6 @@ export default function Main() {
     const cardLanguageSelected = [
       languages[index].title,
       languages[index].description,
-    ];
-
-    const emptyCardLanguage = [
-      "Nessun linguaggio selezionato",
-      "Selezionare un linguaggio ricevere informazioni su esso",
     ];
 
     const updateLanguage =
@@ -43,10 +40,17 @@ export default function Main() {
           chooseLanguage={chooseLanguage}
         ></ButtonList>
         <section className="card-selected py-4">
-          <Card
-            title={actualLanguage[0]}
-            description={actualLanguage[1]}
-          ></Card>
+          {actualLanguage ? (
+            <Card
+              title={actualLanguage[0]}
+              description={actualLanguage[1]}
+            ></Card>
+          ) : (
+            <Card
+              title={emptyCardLanguage[0]}
+              description={emptyCardLanguage[1]}
+            ></Card>
+          )}
         </section>
       </div>
     </main>
